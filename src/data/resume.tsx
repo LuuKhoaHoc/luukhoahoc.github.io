@@ -1,29 +1,30 @@
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { BriefcaseIcon, HomeIcon, NotebookIcon } from "lucide-react";
 
 import { Icons } from "@/components/Icons";
 
 export const DATA = {
   name: "Luu Khoa Hoc",
-  initials: "LKH",
+  englishName: "Leo",
+  initials: "KhoaHoc",
   url: "https://luukhoahoc.me",
   location: "Can Giuoc, Viet Nam",
   locationLink:
     "https://www.google.com/maps/place/Cần+Giuộc,+Long+An,+Việt+Nam/",
   description:
-    "Front-end developer building scalable, testable web experiences with Next.js and TypeScript.",
+    "Software developer with frontend-focused experience building scalable, testable web experiences with Next.js and TypeScript.",
   summary:
-    "A proactive Frontend Developer with 1.5 years of experience, passionate about delivering the entire development lifecycle from code to deployment. I craft scalable UIs with Next.js, TypeScript, and TailwindCSS while applying modern testing practices such as Vitest and React Testing Library. I enjoy bridging the gap between frontend and operations by leveraging Docker, GitHub Actions, and containerization fundamentals to keep workflows resilient and consistent.",
+    "Software Developer with 1.5 years of frontend-focused experience in React/Next.js, TypeScript, and TailwindCSS. Adept at starting and launching new projects end-to-end, delivering scalable features, collaborating with backend and cross-functional teams; familiar with DeFi/Fintech and Web3 integrations (wagmi/@web3-react).",
   avatarUrl: "/me.png",
   avatarLightUrl: "/me-light.png",
   skills: [
-    "JavaScript (ES6+)",
+    "Next.js",
+    "React",
     "TypeScript",
+    "JavaScript (ES6+)",
+    "Motion",
     "HTML5",
     "CSS3",
-    "React",
-    "Next.js",
     "TailwindCSS",
-    "Framer Motion",
     "Sass/SCSS",
     "TanStack Query",
     "Zustand",
@@ -32,7 +33,7 @@ export const DATA = {
     "@web3-react",
     "Wagmi",
     "GraphQL",
-    "Vitest",
+    "Jest",
     "React Testing Library",
     "Docker",
     "Git",
@@ -40,6 +41,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/work/", icon: BriefcaseIcon, label: "Work" },
     // { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
@@ -83,7 +85,7 @@ export const DATA = {
       start: "May 2024",
       end: "Sep 2025",
       description:
-        "Developed and maintained responsive, high-performance interfaces for decentralized (DEX) and centralized (CEX) exchanges as well as e-commerce products. Led Podbrick's customizable product builder with real-time visualizations and improved customer engagement. Configured Shopify and Printify integrations and managed staging environments to streamline testing and pre-production releases. Mentored five junior developers through code reviews, onboarding, and CI/CD guidance to elevate overall code quality.",
+        "Led frontend architecture and implementation for new platforms in E-commerce and DeFi, applying scalable design with React, Next.js, and TypeScript. Delivered end-to-end product features from scratch: collaborating directly with backend teams to define data contracts (REST/GraphQL), handling API integration, error management, and state synchronization for production-ready releases. Integrated Web3 features using wagmi and @web3-react, enabling wallet connections and smart contract calls for decentralized application modules. Researched and configured secure third-party integrations (Shopify & Printify API); configured custom admin dashboards to support business operations. Provided mentoring to junior engineers, enforced code review process, and contributed to collective improvement of engineering standards in a cross-functional Agile environment.",
     },
   ],
   education: [
@@ -105,17 +107,17 @@ export const DATA = {
       description:
         "Led the front-end architecture and UI for a customizable merch builder, allowing users to design Lego characters for printing on favorite products like t-shirts, with live product previews and streamlined order flows for Podbrick partners.",
       technologies: [
-        "Alibaba Cloud",
-        "Framer Motion",
-        "Next.js",
-        "Printify",
         "React",
-        "Redux / Redux Toolkit",
-        "REST APIs",
-        "Shadcn UI",
-        "Shopify",
-        "TailwindCSS",
+        "Next.js",
         "TypeScript",
+        "Redux / Redux Toolkit",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Framer Motion",
+        "REST APIs",
+        "Shopify",
+        "Printify",
+        "Alibaba Cloud",
       ],
       links: [
         {
@@ -124,7 +126,7 @@ export const DATA = {
           href: "https://podbrick.com",
         },
       ],
-      image: "",
+      image: "/projects/podbrick (2).png",
       video: "",
     },
     {
@@ -135,16 +137,16 @@ export const DATA = {
       description:
         "Developed a platform enabling users to purchase packages for daily interest payments, paid in USDT and received in VPC or USDV based on customer preferences, enhancing user engagement and financial flexibility.",
       technologies: [
-        "Alibaba Cloud",
-        "Framer Motion",
-        "Next.js",
         "React",
-        "Redux / Redux Toolkit",
-        "REST APIs",
-        "Shadcn UI",
-        "TailwindCSS",
+        "Next.js",
         "TypeScript",
+        "Redux / Redux Toolkit",
         "Wagmi",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Framer Motion",
+        "REST APIs",
+        "Alibaba Cloud",
       ],
       links: [
         {
@@ -153,7 +155,7 @@ export const DATA = {
           href: "https://swap.vinachain.io",
         },
       ],
-      image: "",
+      image: "/projects/swap-vinachain (1).png",
       video: "",
     },
     {
@@ -164,15 +166,15 @@ export const DATA = {
       description:
         "Developed a centralized exchange (CEX) platform where users log in and link wallets to trade VPC and USDV tokens, featuring full professional CEX capabilities including order management, real-time trading, and secure transactions.",
       technologies: [
-        "@web3-react",
-        "Alibaba Cloud",
-        "Next.js",
         "React",
-        "Redux / Redux Toolkit",
-        "REST APIs",
-        "Shadcn UI",
-        "TailwindCSS",
+        "Next.js",
         "TypeScript",
+        "Redux / Redux Toolkit",
+        "@web3-react",
+        "TailwindCSS",
+        "Shadcn UI",
+        "REST APIs",
+        "Alibaba Cloud",
       ],
       links: [
         {
@@ -181,7 +183,7 @@ export const DATA = {
           href: "https://weex.info",
         },
       ],
-      image: "",
+      image: "/projects/weex (1).png",
       video: "",
     },
     {
@@ -192,15 +194,15 @@ export const DATA = {
       description:
         "Developed a comprehensive GameFi portal connecting to a mobile game via wallet addresses, enabling users to buy in-game items with tokens, top up the game using tokens through a VPC-to-Ruby swap gateway, and purchase NFTs with VPC tokens to enhance community engagement and drive user growth.",
       technologies: [
-        "@web3-react",
-        "Alibaba Cloud",
-        "Next.js",
         "React",
-        "Redux / Redux Toolkit",
-        "REST APIs",
-        "Shadcn UI",
-        "TailwindCSS",
+        "Next.js",
         "TypeScript",
+        "Redux / Redux Toolkit",
+        "@web3-react",
+        "TailwindCSS",
+        "Shadcn UI",
+        "REST APIs",
+        "Alibaba Cloud",
       ],
       links: [
         {
@@ -209,7 +211,7 @@ export const DATA = {
           href: "https://daivietsuky.com",
         },
       ],
-      image: "",
+      image: "/projects/dvsk (3).png",
       video: "",
     },
   ],
