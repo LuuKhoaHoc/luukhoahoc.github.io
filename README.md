@@ -32,13 +32,13 @@ npm install
 npm run dev
 
 # Open your browser at http://localhost:3000 to view the result.
-````
+```
 
 ## 📧 Contact
 
 You can find me via:
 
-  - **Name:** Luu Khoa Hoc
-  - **LinkedIn:** [luukhoahoc/](https://www.linkedin.com/in/luukhoahoc/)
-  - **Email:** [luukhoahoc.work@gmail.com](mailto:luukhoahoc.work@gmail.com)
-  - **GitHub:** [LuuKhoaHoc](https://github.com/LuuKhoaHoc)
+- **Name:** Luu Khoa Hoc
+- **LinkedIn:** [luukhoahoc/](https://www.linkedin.com/in/luukhoahoc/)
+- **Email:** [luukhoahoc.work@gmail.com](mailto:luukhoahoc.work@gmail.com)
+- **GitHub:** [LuuKhoaHoc](https://github.com/LuuKhoaHoc)
