@@ -3,10 +3,11 @@ import { Inter as FontSans } from "next/font/google";
 import type { Metadata } from "next";
 
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { GridBackground } from "@/components/ui/GridBackground";
 import { TooltipProvider } from "@/components/ui/Tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
+
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -56,19 +57,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
+          "min-h-screen bg-black font-sans text-white antialiased",
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <GridBackground className="min-h-screen">
           <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
+            <div className="relative min-h-screen">
+              <Navbar />
+
+              <div className="w-full">
+                <div className="mx-auto max-w-7xl px-6 py-12 sm:py-24">
+                  {children}
+                </div>
+              </div>
+            </div>
           </TooltipProvider>
-        </ThemeProvider>
+        </GridBackground>
       </body>
     </html>
   );
