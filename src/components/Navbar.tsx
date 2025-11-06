@@ -1,78 +1,165 @@
-import Link from "next/link";
+"use client";
 
-import { Dock, DockIcon } from "@/components/magicui/Dock";
-import { ModeToggle } from "@/components/ModeToggle";
-import { buttonVariants } from "@/components/ui/Button";
-import { Separator } from "@/components/ui/Separator";
+import React, { useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/Tooltip";
+  MobileNav,
+  MobileNavHeader,
+  MobileNavMenu,
+  MobileNavToggle,
+  Navbar as ResizableNavbar,
+  NavbarButton,
+  NavBody,
+  NavItems,
+} from "@/components/ui/ResizableNavbar";
 import { DATA } from "@/data/resume";
-import { cn } from "@/lib/utils";
+
+import { HoverBorderGradient } from "./ui/HoverBorderGradient";
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navItems = [
+    ...DATA.navbar.map((item) => ({
+      name: item.label,
+      link: item.href,
+      isActive: pathname === item.href,
+    })),
+  ];
+
+  // Social links
+  const socialLinks = Object.entries(DATA.contact.social)
+    .filter(([_, social]) => social.navbar)
+    .map(([name, social]) => ({
+      name,
+      link: social.url,
+      icon: social.icon,
+    }));
+
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex origin-bottom h-full max-h-14">
-      <div className="fixed bottom-0 inset-x-0 h-16 w-full bg-background to-transparent backdrop-blur-lg [-webkit-mask-image:linear-gradient(to_top,black,transparent)] dark:bg-background"></div>
-      <Dock className="z-50 pointer-events-auto relative mx-auto flex min-h-full h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] ">
-        {DATA.navbar.map((item) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    "size-12"
-                  )}
-                >
-                  <item.icon className="size-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{item.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
-        <Separator orientation="vertical" className="h-full" />
-        {Object.entries(DATA.contact.social)
-          .filter(([_, social]) => social.navbar)
-          .map(([name, social]) => (
-            <DockIcon key={name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.url}
-                    target="_blank"
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12"
-                    )}
-                  >
-                    <social.icon className="size-4" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
+    <ResizableNavbar className="top-2">
+      {/* Desktop Navbar */}
+      <NavBody>
+        {/* Logo */}
+        <Logo />
+
+        {/* Navigation Items */}
+        <NavItems
+          items={navItems}
+          onItemClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Right section: Social + CTA */}
+        <div className="flex items-center gap-2">
+          {/* Social Icons */}
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-neutral-300 transition-colors hover:text-white"
+            >
+              <social.icon className="h-5 w-5" />
+            </a>
           ))}
-        <Separator orientation="vertical" className="h-full py-2" />
-        <DockIcon>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <ModeToggle />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Theme</p>
-            </TooltipContent>
-          </Tooltip>
-        </DockIcon>
-      </Dock>
-    </div>
+
+          {/* CTA Button */}
+          <Link href={DATA.contact.social.email.url}>
+            <HoverBorderGradient
+              containerClassName="rounded-full"
+              as="div"
+              className="flex items-center space-x-2 bg-white text-black dark:bg-black dark:text-white"
+            >
+              Contact
+            </HoverBorderGradient>
+          </Link>
+        </div>
+      </NavBody>
+
+      {/* Mobile Navbar */}
+      <MobileNav>
+        <MobileNavHeader>
+          <Logo />
+          <MobileNavToggle
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        >
+          {/* Nav Items */}
+          {navItems.map((item, idx) => (
+            <Link
+              key={idx}
+              href={item.link}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={
+                item.isActive
+                  ? "font-semibold text-neutral-50 transition-colors"
+                  : "text-neutral-300 transition-colors hover:text-white"
+              }
+            >
+              {item.name}
+            </Link>
+          ))}
+
+          {/* Social Links */}
+          <div className="mt-4 flex gap-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-300 transition-colors hover:text-white"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <social.icon className="h-6 w-6" />
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile CTA */}
+          <Link href={DATA.contact.social.email.url} className="w-full">
+            <HoverBorderGradient
+              containerClassName="rounded-full w-full"
+              as="div"
+              className="flex items-center justify-center space-x-2 bg-white text-black dark:bg-black dark:text-white"
+            >
+              Contact
+            </HoverBorderGradient>
+          </Link>
+        </MobileNavMenu>
+      </MobileNav>
+    </ResizableNavbar>
   );
 }
+
+const Logo = () => {
+  return (
+    <Link
+      href="/"
+      className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
+    >
+      <Image
+        src={DATA.avatarUrl}
+        alt={DATA.name}
+        width={30}
+        height={30}
+        className="rounded-full"
+      />
+      <span className="font-medium text-black dark:text-white">
+        {DATA.englishName}
+      </span>
+    </Link>
+  );
+};

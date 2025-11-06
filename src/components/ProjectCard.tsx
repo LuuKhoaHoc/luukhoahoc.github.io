@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/Card";
 import { cn } from "@/lib/utils";
 
-
 interface Props {
   title: string;
   href?: string;
@@ -46,7 +45,7 @@ export function ProjectCard({
   return (
     <Card
       className={
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+        "flex h-full flex-col overflow-hidden border transition-all duration-300 ease-out hover:shadow-lg"
       }
     >
       <Link
@@ -73,7 +72,7 @@ export function ProjectCard({
           />
         )}
       </Link>
-      <CardHeader className="px-2">
+      <CardHeader className="px-2 py-1">
         <div className="space-y-1">
           <CardTitle className="mt-1 text-base">{title}</CardTitle>
           <time className="font-sans text-xs">{dates}</time>

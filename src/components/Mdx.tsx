@@ -72,7 +72,7 @@ function createHeading(level: number) {
           className: "anchor",
         }),
       ],
-      children,
+      children
     );
   };
   Heading.displayName = `Heading${level}`;
