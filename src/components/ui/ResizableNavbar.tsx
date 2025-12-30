@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 
 import Link from "next/link";
 
-import { MenuIcon, XIcon } from "lucide-react";
 import {
   motion,
   AnimatePresence,
@@ -106,7 +105,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 dark:bg-transparent lg:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className
       )}
@@ -237,27 +236,52 @@ export const MobileNavToggle = ({
   isOpen: boolean;
   onClick: () => void;
 }) => {
-  return isOpen ? (
-    <XIcon className="text-black dark:text-white" onClick={onClick} />
-  ) : (
-    <MenuIcon className="text-black dark:text-white" onClick={onClick} />
-  );
-};
-
-export const NavbarLogo = () => {
   return (
-    <a
-      href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+    <button
+      onClick={onClick}
+      className="flex h-10 w-10 items-center justify-center rounded-md text-black focus:outline-none dark:text-white"
+      aria-label="Toggle menu"
     >
-      <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        alt="logo"
-        width={30}
-        height={30}
-      />
-      <span className="font-medium text-black dark:text-white">Startup</span>
-    </a>
+      <motion.svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        animate={isOpen ? "open" : "closed"}
+      >
+        {/* Top Line */}
+        <motion.path
+          d="M4 6h16"
+          variants={{
+            closed: { d: "M4 6h16", rotate: 0, y: 0 },
+            open: { d: "M4 6h16", rotate: 45, y: 6 },
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
+        {/* Middle Line */}
+        <motion.path
+          d="M4 12h16"
+          variants={{
+            closed: { opacity: 1 },
+            open: { opacity: 0 },
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
+        {/* Bottom Line */}
+        <motion.path
+          d="M4 18h16"
+          variants={{
+            closed: { d: "M4 18h16", rotate: 0, y: 0 },
+            open: { d: "M4 18h16", rotate: -45, y: -6 },
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
+      </motion.svg>
+    </button>
   );
 };
 
