@@ -28,7 +28,11 @@ export default function Navbar() {
     ...DATA.navbar.map((item) => ({
       name: item.label,
       link: item.href,
-      isActive: pathname === item.href,
+      isActive:
+        (pathname === "/" && item.href === "/") ||
+        (pathname !== "/" &&
+          item.href !== "/" &&
+          pathname.startsWith(item.href.replace(/\/$/, ""))),
     })),
   ];
 
@@ -133,7 +137,7 @@ export default function Navbar() {
             <HoverBorderGradient
               containerClassName="rounded-full w-full"
               as="div"
-              className="flex items-center justify-center space-x-2 bg-white text-black dark:bg-black dark:text-white"
+              className="flex items-center justify-center space-x-2 bg-transparent text-white"
             >
               Contact
             </HoverBorderGradient>
