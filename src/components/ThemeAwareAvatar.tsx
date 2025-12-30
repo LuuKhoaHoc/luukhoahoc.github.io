@@ -10,6 +10,7 @@ interface ThemeAwareAvatarImageProps
 
 export function ThemeAwareAvatarImage({
   darkSrc,
+  lightSrc,
   alt,
   ...rest
 }: ThemeAwareAvatarImageProps) {
