@@ -1,4 +1,4 @@
-import { BriefcaseIcon, HomeIcon, NotebookIcon } from "lucide-react";
+import { BriefcaseIcon, HomeIcon, FileText } from "lucide-react";
 
 import { Icons } from "@/components/Icons";
 
@@ -11,37 +11,40 @@ export const DATA = {
   locationLink:
     "https://www.google.com/maps/place/Cần+Giuộc,+Long+An,+Việt+Nam/",
   description:
-    "Software developer with frontend-focused experience building scalable, testable web experiences with Next.js and TypeScript.",
+    "Proactive Frontend Developer with 2 years of expertise in React, Next.js, and TypeScript. Building scalable DeFi and E-commerce platforms.",
   summary:
-    "Software Developer with 1.5 years of frontend-focused experience in React/Next.js, TypeScript, and TailwindCSS. Adept at starting and launching new projects end-to-end, delivering scalable features, collaborating with backend and cross-functional teams; familiar with DeFi/Fintech and Web3 integrations (wagmi/@web3-react).",
+    "Proactive Frontend Developer with 2 years of expertise in React, Next.js, and TypeScript. Proven track record in building scalable DeFi ($10M+ TVL) and E-commerce platforms. Skilled in refactoring project architecture for maintainability and implementing semantic HTML for SEO optimization. A product-minded collaborator who actively contributes to UI/UX improvements and aligns closely with Backend teams on complex business logic and state management.",
   avatarUrl: "/me.png",
   avatarLightUrl: "/me-light.png",
   skills: [
-    "Next.js",
     "React",
+    "Next.js",
     "TypeScript",
-    "JavaScript (ES6+)",
-    "Motion",
-    "HTML5",
-    "CSS3",
     "TailwindCSS",
-    "Sass/SCSS",
-    "TanStack Query",
-    "Zustand",
-    "Redux Toolkit",
-    "RESTful APIs",
-    "@web3-react",
-    "Wagmi",
-    "GraphQL",
+    "Redux/RTK",
+    "React Native",
+    "React Query",
+    "Framer Motion",
+    "GSAP",
+    "Node.js",
+    "NestJS",
+    "C#",
+    "EF Core",
     "Jest",
-    "React Testing Library",
-    "Docker",
     "Git",
     "GitHub Actions",
+    "Docker",
+    "Agile",
+    "REST",
+    "GraphQL",
+    "Shopify",
+    "Linux",
+    "AI-assisted coding tools",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/work/", icon: BriefcaseIcon, label: "Work" },
+    { href: "/cv", icon: FileText, label: "CV" },
     // { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
@@ -85,7 +88,7 @@ export const DATA = {
       start: "May 2024",
       end: "Sep 2025",
       description:
-        "Led frontend architecture and implementation for new platforms in E-commerce and DeFi, applying scalable design with React, Next.js, and TypeScript. Delivered end-to-end product features from scratch: collaborating directly with backend teams to define data contracts (REST/GraphQL), handling API integration, error management, and state synchronization for production-ready releases. Integrated Web3 features using wagmi and @web3-react, enabling wallet connections and smart contract calls for decentralized application modules. Researched and configured secure third-party integrations (Shopify & Printify API); configured custom admin dashboards to support business operations. Provided mentoring to junior engineers, enforced code review process, and contributed to collective improvement of engineering standards in a cross-functional Agile environment.",
+        "• Developed scalable frontend modules (Next.js/TS), improving system maintainability by ~20%.\n• Defined and refactored the initial project structure for the intern team, establishing coding standards that reduced onboarding time by 30%. Conducted code reviews to ensure scalability and best practices.\n• Engineered robust RESTAPI & Web3 (wagmi) integrations, ensuring seamless data flow and high stability.\n• Built custom Admin Dashboards and streamlined internal operations by integrating third-party services like Shopify and Printify.\n• Collaborated closely with Design and Backend teams in an Agile environment to ensure timely delivery of high-quality features.",
     },
   ],
   education: [
@@ -94,48 +97,18 @@ export const DATA = {
       href: "https://vtc.edu.vn",
       degree: "Full-stack Web Development",
       logoUrl: "/vtc-academy.png",
-      start: "Sep 2021",
-      end: "May 2024",
+      start: "Sept 2021",
+      end: "Apr 2024",
     },
   ],
   projects: [
     {
-      title: "Podbrick E-commerce Builder",
-      href: "https://podbrick.com",
-      dates: "2025",
-      active: true,
-      description:
-        "Led the front-end architecture and UI for a customizable merch builder, allowing users to design Lego characters for printing on favorite products like t-shirts, with live product previews and streamlined order flows for Podbrick partners.",
-      technologies: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Redux / Redux Toolkit",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Framer Motion",
-        "REST APIs",
-        "Shopify",
-        "Printify",
-        "Alibaba Cloud",
-      ],
-      links: [
-        {
-          icon: <Icons.globe className="size-3" />,
-          type: "Website",
-          href: "https://podbrick.com",
-        },
-      ],
-      image: "/projects/podbrick (2).png",
-      video: "",
-    },
-    {
       title: "Vinachain Swap",
       href: "https://swap.vinachain.io",
-      dates: "2024 - 2025",
+      dates: "Jun 2024 — 2025",
       active: true,
       description:
-        "Developed a platform enabling users to purchase packages for daily interest payments, paid in USDT and received in VPC or USDV based on customer preferences, enhancing user engagement and financial flexibility.",
+        "Revamped UI/UX driving a 20% increase in user adoption; built secure staking interfaces facilitating over $10M+ in TVL. Contributed to the migration of legacy Web3 integration to Wagmi, reducing transaction processing time by ~20% and improving connection stability.",
       technologies: [
         "React",
         "Next.js",
@@ -159,12 +132,12 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Weex & AEX24 Operations Portal",
+      title: "Weex Trade",
       href: "https://weex.info",
-      dates: "2024 - 2025",
+      dates: "Jul 2024 — 2025",
       active: true,
       description:
-        "Developed a centralized exchange (CEX) platform where users log in and link wallets to trade VPC and USDV tokens, featuring full professional CEX capabilities including order management, real-time trading, and secure transactions.",
+        "Developed core frontend modules (including KYC & Banking) for a high-traffic trading platform ahead of the release schedule. Ensured high availability, successfully onboarding 100+ verified traders in the first month with zero frontend-related downtime.",
       technologies: [
         "React",
         "Next.js",
@@ -184,6 +157,36 @@ export const DATA = {
         },
       ],
       image: "/projects/weex (1).png",
+      video: "",
+    },
+    {
+      title: "Podbrick E-commerce Builder",
+      href: "https://podbrick.com",
+      dates: "Jun 2025 - Sept 2025",
+      active: true,
+      description:
+        "Engineered a real-time customizer using Framer Motion and Context API, ensuring high performance and seamless state management across user sessions. Streamlined business operations by integrating Shopify & Printify APIs, and collaborated with Backend to implement secure Authentication flows.",
+      technologies: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Redux / Redux Toolkit",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Framer Motion",
+        "REST APIs",
+        "Shopify",
+        "Printify",
+        "Alibaba Cloud",
+      ],
+      links: [
+        {
+          icon: <Icons.globe className="size-3" />,
+          type: "Website",
+          href: "https://podbrick.com",
+        },
+      ],
+      image: "/projects/podbrick (2).png",
       video: "",
     },
     {
