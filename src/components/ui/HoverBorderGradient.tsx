@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { motion } from "motion/react";
 
@@ -27,14 +27,17 @@ export function HoverBorderGradient({
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>("TOP");
 
-  const rotateDirection = (currentDirection: Direction): Direction => {
-    const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
-    const currentIndex = directions.indexOf(currentDirection);
-    const nextIndex = clockwise
-      ? (currentIndex - 1 + directions.length) % directions.length
-      : (currentIndex + 1) % directions.length;
-    return directions[nextIndex];
-  };
+  const rotateDirection = useCallback(
+    (currentDirection: Direction): Direction => {
+      const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
+      const currentIndex = directions.indexOf(currentDirection);
+      const nextIndex = clockwise
+        ? (currentIndex - 1 + directions.length) % directions.length
+        : (currentIndex + 1) % directions.length;
+      return directions[nextIndex];
+    },
+    [clockwise]
+  );
 
   const movingMap: Record<Direction, string> = {
     TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -55,7 +58,8 @@ export function HoverBorderGradient({
       }, duration * 1000);
       return () => clearInterval(interval);
     }
-  }, [hovered]);
+  }, [hovered, duration, clockwise, rotateDirection]);
+
   return (
     <Tag
       onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) => {
@@ -70,7 +74,7 @@ export function HoverBorderGradient({
     >
       <div
         className={cn(
-          "z-10 w-auto rounded-[inherit] bg-black px-4 py-2 text-white",
+          "z-10 w-auto rounded-[inherit] bg-background px-4 py-2 text-foreground",
           className
         )}
       >
@@ -94,7 +98,7 @@ export function HoverBorderGradient({
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
       />
-      <div className="z-1 absolute inset-[2px] flex-none rounded-[100px] bg-black" />
+      <div className="z-1 absolute inset-[2px] flex-none rounded-[100px] bg-background" />
     </Tag>
   );
 }
