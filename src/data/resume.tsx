@@ -11,9 +11,9 @@ export const DATA = {
   locationLink:
     "https://www.google.com/maps/place/Cần+Giuộc,+Long+An,+Việt+Nam/",
   description:
-    "Proactive Frontend Developer with 2 years of expertise in React, Next.js, and TypeScript. Building scalable DeFi and E-commerce platforms.",
+    "Proactive Frontend Developer with around 2 years of expertise in React, Next.js, and TypeScript. Building scalable DeFi and E-commerce platforms.",
   summary:
-    "Proactive Frontend Developer with 2 years of expertise in React, Next.js, and TypeScript. Proven track record in building scalable DeFi ($10M+ TVL) and E-commerce platforms. Skilled in refactoring project architecture for maintainability and implementing semantic HTML for SEO optimization. A product-minded collaborator who actively contributes to UI/UX improvements and aligns closely with Backend teams on complex business logic and state management.",
+    "Proactive Frontend Developer with around 2 years of expertise in React, Next.js, and TypeScript. Proven track record in building scalable DeFi ($10M+ TVL) and E-commerce platforms. Skilled in refactoring project architecture for maintainability and implementing semantic HTML for SEO optimization. A product-minded collaborator who actively contributes to UI/UX improvements and aligns closely with Backend teams on complex business logic and state management.",
   avatarUrl: "/me.png",
   avatarLightUrl: "/me-light.png",
   skills: [
@@ -38,6 +38,8 @@ export const DATA = {
     "REST",
     "GraphQL",
     "Shopify",
+    "AWS S3 Storage",
+    "Cloudflare R2 Storage",
     "Linux",
     "AI-assisted coding tools",
   ],
