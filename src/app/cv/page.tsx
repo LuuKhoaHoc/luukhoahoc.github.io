@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function CVPage() {
   return (
     <div className="flex h-[calc(100vh-80px)] w-full flex-col bg-background p-4 md:p-8">
-      <main className="flex h-full flex-1 flex-col overflow-hidden rounded-xl border bg-muted shadow-sm">
+      <main className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border bg-muted shadow-sm">
         {/* Desktop View: Native PDF Embed */}
         <div className="hidden h-full w-full md:block">
           <object
@@ -48,8 +48,8 @@ export default function CVPage() {
               Curriculum Vitae
             </h2>
             <p className="max-w-xs text-sm text-muted-foreground">
-              View my full professional experience, skills, and education
-              detail.
+              View my professional experience, skills, and education. A
+              project-delivery version is also available below.
             </p>
           </div>
 
@@ -74,6 +74,20 @@ export default function CVPage() {
           </div>
         </div>
       </main>
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+        <p className="text-muted-foreground">
+          Interested in technical delivery and project coordination?
+        </p>
+        <Link
+          href="/luu-khoa-hoc-project-manager-cv.pdf"
+          target="_blank"
+          className="inline-flex items-center gap-2 font-medium text-primary hover:underline"
+        >
+          <FileText className="h-4 w-4" />
+          View project-delivery CV
+          <ExternalLink className="h-4 w-4" />
+        </Link>
+      </div>
     </div>
   );
 }

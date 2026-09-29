@@ -6,14 +6,14 @@ export const DATA = {
   name: "Luu Khoa Hoc",
   englishName: "Leo",
   initials: "KhoaHoc",
-  url: "https://luukhoahoc.me",
+  url: "https://luukhoahoc.dev",
   location: "Ho Chi Minh City, Viet Nam",
   locationLink:
     "https://www.google.com/maps/place/Ho+Chi+Minh+City,+Viet+Nam/",
   description:
-    "Proactive Frontend Engineer with 2.5+ years building scalable React, Next.js and TypeScript applications across DeFi, E-commerce and enterprise ERP systems.",
+    "Frontend Engineer building React, Next.js and TypeScript applications across DeFi, e-commerce and enterprise ERP.",
   summary:
-    "Proactive Frontend Engineer with 2.5+ years building scalable React, Next.js and TypeScript applications across DeFi, E-commerce and enterprise ERP systems. Currently leading frontend architecture for Hilo ERP Admin — a complex micro-frontend monorepo (React 19, Vite Module Federation) with 7+ business apps as Frontend Lead. Previously delivered $10M+ TVL in DeFi staking platform, reduced transaction latency by ~20%, and cut team onboarding time by 30% with zero frontend incidents. Product-minded engineer with strong focus on clean architecture, shared libraries, and high-quality delivery.",
+    "Frontend Engineer building React, Next.js and TypeScript applications across DeFi, e-commerce and enterprise ERP. At Hilo Group, leads frontend architecture and delivery for an ERP micro-frontend platform using React 19, Vite Module Federation and shared libraries. Previously worked on DeFi, fintech and e-commerce products, including Web3 integrations, KYC and banking modules, and Shopify/Printify integrations. Focused on maintainable architecture, cross-functional delivery and clear technical documentation.",
   avatarUrl: "/me.png",
   avatarLightUrl: "/me-light.png",
   skills: [
@@ -86,7 +86,7 @@ export const DATA = {
       start: "Jan 2026",
       end: "Present",
       description:
-        "• Led frontend architecture of the Hilo ERP Admin micro-frontend monorepo (React 19 + TypeScript, Vite Module Federation, pnpm/Turbo) with 7+ apps (HR, Employee, Sale, Finance, Product, Shell); second-largest contributor with ~1,500 commits as Frontend Lead.\n• Designed and maintained shared libraries (@hilo/ui and @hilo/shared) — attendance engine, async combobox, responsive DataTable — significantly reducing duplication across multiple business modules.\n• Delivered core HR domain features end-to-end (employee import/export, attendance & leave management, organizational structure, HRM settings) following DTO-first design and URL-driven state management.\n• Owned the Shell application layer (authentication, real-time WebSocket notifications, Zalo Mini App integration) and established strong engineering standards, including a feature-sliced structure, comprehensive documentation, and 200+ merged MRs with production hotfixes.",
+        "• Lead frontend architecture for the Hilo ERP Admin micro-frontend monorepo using React 19, TypeScript, Vite Module Federation and pnpm/Turbo; the platform includes HR, Employee, Sales, Finance, Product and Shell applications.\n• Design and maintain shared libraries (@hilo/ui and @hilo/shared), including attendance utilities, async comboboxes and responsive DataTable components.\n• Deliver HR features including employee import/export, attendance and leave management, organizational structure and HRM settings, using DTO-first design and URL-driven state management.\n• Work on the Shell application layer, including authentication, WebSocket notifications and Zalo Mini App integration; document feature-sliced architecture and implementation conventions.",
     },
     {
       company: "GreenSoftware Asia",
@@ -98,7 +98,7 @@ export const DATA = {
       start: "May 2024",
       end: "Oct 2025",
       description:
-        "• Developed scalable frontend modules (Next.js/TS), improving system maintainability by ~20%.\n• Defined and refactored the initial project structure for the intern team, establishing coding standards that reduced onboarding time by 30%. Conducted code reviews to ensure scalability and best practices.\n• Engineered robust RESTAPI & Web3 (wagmi) integrations, ensuring seamless data flow and high stability.\n• Built custom Admin Dashboards and streamlined internal operations by integrating third-party services like Shopify and Printify.\n• Collaborated closely with Design and Backend teams in an Agile environment to ensure timely delivery of high-quality features.",
+        "• Developed frontend modules with Next.js and TypeScript across DeFi, fintech and e-commerce projects.\n• Helped define project structure and coding conventions, and participated in code reviews.\n• Built REST API and Web3 integrations using wagmi, and developed custom admin dashboards.\n• Integrated third-party services including Shopify and Printify.\n• Collaborated with Design and Backend teams in an Agile environment.",
     },
   ],
   education: [
@@ -118,7 +118,7 @@ export const DATA = {
       dates: "Jun 2024 — 2025",
       active: true,
       description:
-        "Revamped UI/UX driving a 20% increase in user adoption; built secure staking interfaces facilitating over $10M+ in TVL. Contributed to the migration of legacy Web3 integration to Wagmi, reducing transaction processing time by ~20% and improving connection stability.",
+        "Developed a staking interface and contributed to migrating the legacy Web3 integration to wagmi.",
       technologies: [
         "React",
         "Next.js",
@@ -147,7 +147,7 @@ export const DATA = {
       dates: "Jul 2024 — 2025",
       active: true,
       description:
-        "Developed core frontend modules (including KYC & Banking) for a high-traffic trading platform ahead of the release schedule. Ensured high availability, successfully onboarding 100+ verified traders in the first month with zero frontend-related downtime.",
+        "Developed core frontend modules, including KYC and banking, for a crypto trading platform.",
       technologies: [
         "React",
         "Next.js",
