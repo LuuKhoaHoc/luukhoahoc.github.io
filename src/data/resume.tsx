@@ -8,14 +8,13 @@ export const DATA = {
   initials: "KhoaHoc",
   url: "https://luukhoahoc.dev",
   location: "Ho Chi Minh City, Viet Nam",
-  locationLink:
-    "https://www.google.com/maps/place/Ho+Chi+Minh+City,+Viet+Nam/",
+  locationLink: "https://www.google.com/maps/place/Ho+Chi+Minh+City,+Viet+Nam/",
   description:
     "Frontend Engineer building React, Next.js and TypeScript applications across DeFi, e-commerce and enterprise ERP.",
   summary:
     "Frontend Engineer building React, Next.js and TypeScript applications across DeFi, e-commerce and enterprise ERP. At Hilo Group, leads frontend architecture and delivery for an ERP micro-frontend platform using React 19, Vite Module Federation and shared libraries. Previously worked on DeFi, fintech and e-commerce products, including Web3 integrations, KYC and banking modules, and Shopify/Printify integrations. Focused on maintainable architecture, cross-functional delivery and clear technical documentation.",
-  avatarUrl: "/me.png",
-  avatarLightUrl: "/me-light.png",
+  avatarUrl: "/me.webp",
+  avatarLightUrl: "/me.webp",
   skills: [
     "React 19",
     "Next.js",
@@ -82,7 +81,7 @@ export const DATA = {
       badges: ["Lead"],
       location: "Ho Chi Minh City, Viet Nam",
       title: "Frontend Engineer | Lead Frontend ERP Project",
-      logoUrl: "",
+      logoUrl: "/hilo-group-logo.webp",
       start: "Jan 2026",
       end: "Present",
       description:
@@ -103,12 +102,18 @@ export const DATA = {
   ],
   education: [
     {
+      school: "University of Information Technology (UIT)",
+      href: "https://www.uit.edu.vn/",
+      degree: "Work-study program via CITD",
+      logoUrl: "/uit-logo.png",
+      period: "In progress",
+    },
+    {
       school: "VTC Academy",
       href: "https://vtc.edu.vn",
       degree: "Full-stack Web Development",
       logoUrl: "/vtc-academy.png",
-      start: "Sept 2021",
-      end: "Apr 2024",
+      period: "Sep 2021 – Apr 2024",
     },
   ],
   projects: [
@@ -138,7 +143,7 @@ export const DATA = {
           href: "https://swap.vinachain.io",
         },
       ],
-      image: "/projects/swap-vinachain (1).png",
+      image: "/projects/swap-vinachain.webp",
       video: "",
     },
     {
@@ -166,7 +171,7 @@ export const DATA = {
           href: "https://weex.info",
         },
       ],
-      image: "/projects/weex (1).png",
+      image: "/projects/weex.webp",
       video: "",
     },
     {
@@ -196,7 +201,7 @@ export const DATA = {
           href: "https://podbrick.com",
         },
       ],
-      image: "/projects/podbrick (2).png",
+      image: "/projects/podbrick.webp",
       video: "",
     },
     {
@@ -224,7 +229,7 @@ export const DATA = {
           href: "https://daivietsuky.com",
         },
       ],
-      image: "/projects/dvsk (3).png",
+      image: "/projects/dvsk.webp",
       video: "",
     },
   ],

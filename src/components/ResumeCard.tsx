@@ -41,7 +41,7 @@ export const ResumeCard = ({
   const commonProps = {
     onClick: handleClick,
     className:
-      "group flex cursor-pointer flex-col items-center gap-4 rounded-xl border border-transparent p-4 transition-all hover:border-neutral-200 hover:bg-neutral-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800/50 md:flex-row",
+      "group flex cursor-pointer flex-col items-start gap-4 rounded-xl border border-transparent p-4 transition-all hover:border-neutral-200 hover:bg-neutral-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800/50 md:flex-row",
   };
 
   const content = (
@@ -49,21 +49,29 @@ export const ResumeCard = ({
       {/* Company/School logo */}
       <div className="flex-none">
         <Avatar className="size-12 rounded-md border-0">
-          <AvatarImage src={logoUrl} alt={altText} className="object-contain" />
-          <AvatarFallback>{altText[0]}</AvatarFallback>
+          {logoUrl && (
+            <AvatarImage
+              src={logoUrl}
+              alt={altText}
+              className="object-contain"
+            />
+          )}
+          <AvatarFallback className="text-xs font-semibold">
+            {altText.includes("(UIT)") ? "UIT" : altText[0]}
+          </AvatarFallback>
         </Avatar>
       </div>
 
       {/* Content */}
-      <div className="flex-1">
-        <div className="flex items-start justify-between">
-          <div className="flex-1">
+      <div className="w-full min-w-0 flex-1">
+        <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <div className="min-w-0 flex-1">
             <h3 className="font-semibold leading-none">{title}</h3>
             {subtitle && (
               <p className="text-sm text-muted-foreground">{subtitle}</p>
             )}
           </div>
-          <div className="ml-auto text-right text-xs tabular-nums text-muted-foreground">
+          <div className="shrink-0 text-left text-xs tabular-nums text-muted-foreground sm:text-right">
             <div>{period}</div>
           </div>
         </div>

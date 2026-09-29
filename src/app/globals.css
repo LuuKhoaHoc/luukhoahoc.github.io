@@ -75,6 +75,35 @@
   }
 }
 
+/* Keep page and modal scrollbars visible but quiet and easy to use. */
+html,
+[role="dialog"] {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.5) transparent;
+}
+
+html::-webkit-scrollbar,
+[role="dialog"]::-webkit-scrollbar {
+  width: 7px;
+}
+
+html::-webkit-scrollbar-track,
+[role="dialog"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb,
+[role="dialog"]::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: hsl(var(--muted-foreground) / 0.5) padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+[role="dialog"]::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.75) padding-box;
+}
+
 h3 code {
   @apply !text-lg md:!text-xl;
 }

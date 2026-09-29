@@ -51,7 +51,7 @@ export default function Page() {
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <h2 className="text-xl font-bold">Education</h2>
-          {DATA.education.map((education, id) => (
+          {DATA.education.map((education) => (
             <ResumeCard
               key={education.school}
               href={education.href}
@@ -59,7 +59,7 @@ export default function Page() {
               altText={education.school}
               title={education.school}
               subtitle={education.degree}
-              period={`${education.start} - ${education.end}`}
+              period={education.period}
             />
           ))}
         </div>
@@ -75,7 +75,7 @@ export default function Page() {
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Check out my latest work
+                Selected projects
               </h2>
             </div>
           </div>
@@ -89,14 +89,16 @@ export default function Page() {
               Get in Touch
             </h2>
             <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              For frontend opportunities or technical delivery and coordination roles, contact me with a direct question on{" "}
+              For frontend opportunities or technical delivery and coordination
+              roles, contact me with a direct question on{" "}
               <Link
                 href={DATA.contact.social.LinkedIn.url}
                 target="_blank"
                 className="text-blue-500 hover:underline"
               >
                 LinkedIn
-              </Link>.
+              </Link>
+              .
             </p>
           </div>
         </div>

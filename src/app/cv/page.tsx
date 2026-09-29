@@ -8,9 +8,11 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "My CV | Portfolio",
-  description: "View and download my Curriculum Vitae.",
+  title: "Project Delivery CV | Luu Khoa Hoc",
+  description: "View my project delivery and coordination CV.",
 };
+
+const pdfUrl = "/luu-khoa-hoc-project-manager-cv.pdf";
 
 export default function CVPage() {
   return (
@@ -19,18 +21,18 @@ export default function CVPage() {
         {/* Desktop View: Native PDF Embed */}
         <div className="hidden h-full w-full md:block">
           <object
-            data="/cv.pdf"
+            data={pdfUrl}
             type="application/pdf"
             className="h-full w-full"
-            title="CV Preview"
+            title="Project delivery CV preview"
             style={{ border: "none" }}
           >
             <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center text-muted-foreground">
               <p>Your browser does not support viewing PDF directly.</p>
-              <Link href="/cv.pdf" download="LuuKhoaHoc_CV.pdf">
+              <Link href={pdfUrl} download="LuuKhoaHoc_Project_Delivery_CV.pdf">
                 <Button>
                   <Download className="mr-2 h-4 w-4" />
-                  Download CV
+                  Download project-delivery CV
                 </Button>
               </Link>
             </div>
@@ -45,16 +47,16 @@ export default function CVPage() {
 
           <div className="space-y-2 text-center">
             <h2 className="text-2xl font-bold tracking-tight">
-              Curriculum Vitae
+              Project-delivery CV
             </h2>
             <p className="max-w-xs text-sm text-muted-foreground">
-              View my professional experience, skills, and education. A
-              project-delivery version is also available below.
+              Frontend engineering experience with a focus on technical delivery
+              and project coordination.
             </p>
           </div>
 
           <div className="flex w-full max-w-xs flex-col gap-3">
-            <Link href="/cv.pdf" target="_blank" className="w-full">
+            <Link href={pdfUrl} target="_blank" className="w-full">
               <Button className="w-full" size="lg">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 View PDF
@@ -62,8 +64,8 @@ export default function CVPage() {
             </Link>
 
             <Link
-              href="/cv.pdf"
-              download="LuuKhoaHoc_CV.pdf"
+              href={pdfUrl}
+              download="LuuKhoaHoc_Project_Delivery_CV.pdf"
               className="w-full"
             >
               <Button variant="outline" className="w-full" size="lg">
@@ -76,17 +78,17 @@ export default function CVPage() {
       </main>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
         <p className="text-muted-foreground">
-          Interested in technical delivery and project coordination?
+          Looking for a developer-focused CV instead?
         </p>
-        <Link
-          href="/luu-khoa-hoc-project-manager-cv.pdf"
-          target="_blank"
-          className="inline-flex items-center gap-2 font-medium text-primary hover:underline"
-        >
-          <FileText className="h-4 w-4" />
-          View project-delivery CV
-          <ExternalLink className="h-4 w-4" />
-        </Link>
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <Link
+            href="/cv/technical/"
+            className="inline-flex items-center gap-2 font-medium text-primary hover:underline"
+          >
+            <FileText className="h-4 w-4" />
+            Frontend / Software Engineer CV
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -43,11 +43,7 @@ export function ProjectCard({
   className,
 }: Props) {
   return (
-    <Card
-      className={
-        "flex h-full flex-col overflow-hidden border transition-all duration-300 ease-out hover:shadow-lg"
-      }
-    >
+    <Card className="flex h-full flex-col overflow-hidden border transition-shadow duration-200 hover:shadow-lg">
       <Link
         href={href || "#"}
         className={cn("block cursor-pointer", className)}
@@ -65,10 +61,11 @@ export function ProjectCard({
         {image && (
           <Image
             src={image}
-            alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            alt={`${title} project preview`}
+            width={1200}
+            height={720}
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 600px"
+            className="aspect-[2/1] w-full bg-neutral-100 object-contain dark:bg-neutral-900"
           />
         )}
       </Link>

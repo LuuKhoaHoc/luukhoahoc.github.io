@@ -53,33 +53,35 @@ export default function WorkExperienceList() {
       {/* Expanded card modal */}
       <AnimatePresence>
         {active && (
-          <div className="fixed inset-0 z-[100] grid place-items-center">
-            <motion.button
-              key={`button-${active.company}-${id}`}
-              layout="position"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-white lg:hidden"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
+          <div className="fixed inset-0 z-[100] grid place-items-center p-4">
             <motion.div
               layoutId={`card-${active.company}-${id}`}
               ref={ref}
-              className="flex h-full w-full max-w-[500px] flex-col overflow-hidden bg-white dark:bg-neutral-900 sm:rounded-3xl md:h-fit md:max-h-[90%]"
+              role="dialog"
+              aria-modal="true"
+              aria-label={`${active.company} work details`}
+              className="relative w-full max-w-[500px] overflow-y-auto rounded-2xl bg-white [max-height:calc(100dvh-32px)] dark:bg-neutral-900 sm:rounded-3xl"
             >
+              <button
+                type="button"
+                aria-label="Close work details"
+                className="absolute right-3 top-3 z-10 flex size-9 items-center justify-center rounded-full bg-white text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                onClick={() => setActive(null)}
+              >
+                <CloseIcon />
+              </button>
               {/* Company logo */}
-              <motion.div layoutId={`image-${active.company}-${id}`}>
+              <div
+                className={`flex h-24 w-full items-center justify-center rounded-xl border border-primary/20 text-xl font-semibold tracking-tight text-primary sm:h-32 ${active.company === "Hilo Group" ? "bg-white" : "bg-primary/10"}`}
+              >
                 <Image
-                  width={200}
-                  height={200}
+                  width={active.company === "Hilo Group" ? 280 : 200}
+                  height={active.company === "Hilo Group" ? 80 : 200}
                   src={active.logoUrl}
-                  alt={active.company}
-                  className="h-72 w-full object-contain sm:rounded-tl-lg sm:rounded-tr-lg"
+                  alt={`${active.company} logo`}
+                  className={`h-full w-full object-contain ${active.company === "Hilo Group" ? "px-12 py-5 sm:px-16 sm:py-6" : "p-4"}`}
                 />
-              </motion.div>
+              </div>
 
               <div>
                 <div className="flex items-start justify-between p-4">
@@ -121,23 +123,30 @@ export default function WorkExperienceList() {
                 </div>
 
                 {/* Description content */}
-                <div className="relative px-4 pt-4">
+                <div className="relative px-4 pb-6 pt-4">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="flex h-40 flex-col items-start gap-4 overflow-auto pb-10 text-sm text-neutral-600 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] dark:text-neutral-400 md:h-fit"
+                    className="text-sm text-neutral-600 dark:text-neutral-400"
                   >
                     <div>
                       <h4 className="mb-2 font-semibold text-neutral-700 dark:text-neutral-200">
                         Key Responsibilities & Achievements:
                       </h4>
-                      <p className="leading-relaxed">{active.description}</p>
+                      <div className="space-y-2 leading-relaxed">
+                        {active.description
+                          .split("\n")
+                          .filter(Boolean)
+                          .map((line) => (
+                            <p key={line}>{line}</p>
+                          ))}
+                      </div>
                     </div>
 
                     {active.badges && active.badges.length > 0 && (
-                      <div className="mt-2">
+                      <div className="mt-4">
                         <h4 className="mb-2 font-semibold text-neutral-700 dark:text-neutral-200">
                           Technologies:
                         </h4>
@@ -168,23 +177,25 @@ export default function WorkExperienceList() {
             layoutId={`card-${work.company}-${id}`}
             key={`card-${work.company}-${id}`}
             onClick={() => setActive(work)}
-            className="flex cursor-pointer flex-col items-center gap-4 rounded-xl border border-transparent p-4 hover:border-neutral-200 hover:bg-neutral-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800/50 md:flex-row"
+            className="flex cursor-pointer flex-col items-start gap-4 rounded-xl border border-transparent p-4 hover:border-neutral-200 hover:bg-neutral-50 dark:hover:border-neutral-800 dark:hover:bg-neutral-800/50 md:flex-row"
           >
             {/* Company logo */}
-            <motion.div layoutId={`image-${work.company}-${id}`}>
+            <div
+              className={`flex h-12 w-20 shrink-0 items-center justify-center overflow-hidden rounded-md text-sm font-semibold text-primary ${work.company === "Hilo Group" ? "bg-white" : "bg-primary/10"}`}
+            >
               <Image
-                width={48}
-                height={48}
+                width={work.company === "Hilo Group" ? 280 : 48}
+                height={work.company === "Hilo Group" ? 80 : 48}
                 src={work.logoUrl}
-                alt={work.company}
-                className="h-12 w-12 rounded-md object-contain"
+                alt={`${work.company} logo`}
+                className={`h-full w-full object-contain ${work.company === "Hilo Group" ? "p-1" : ""}`}
               />
-            </motion.div>
+            </div>
 
             {/* Work info */}
-            <div className="flex-1">
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
+            <div className="w-full min-w-0 flex-1">
+              <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <div className="min-w-0 flex-1">
                   <motion.h3
                     layoutId={`title-${work.company}-${id}`}
                     className="font-semibold leading-none"
@@ -200,7 +211,7 @@ export default function WorkExperienceList() {
                 </div>
                 <motion.div
                   layoutId={`period-${work.company}-${id}`}
-                  className="ml-auto text-right text-xs tabular-nums text-muted-foreground"
+                  className="shrink-0 text-left text-xs tabular-nums text-muted-foreground sm:text-right"
                 >
                   <div>
                     {work.start} - {work.end}
